@@ -1,13 +1,15 @@
 import { useState, type FormEvent } from 'react'
+import { useNavigate } from 'react-router-dom'
 
 export default function Hero() {
+  const navigate = useNavigate()
   const [formData, setFormData] = useState({
     name: '',
     email: '',
     phone: '',
     message: ''
   })
-  const [status, setStatus] = useState<'idle' | 'sending' | 'success' | 'error'>('idle')
+  const [status, setStatus] = useState<'idle' | 'sending' | 'error'>('idle')
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault()
@@ -21,9 +23,7 @@ export default function Hero() {
       })
 
       if (response.ok) {
-        setStatus('success')
-        setFormData({ name: '', email: '', phone: '', message: '' })
-        setTimeout(() => setStatus('idle'), 5000)
+        navigate('/obrigado')
       } else {
         setStatus('error')
         setTimeout(() => setStatus('idle'), 5000)
@@ -248,13 +248,6 @@ export default function Hero() {
                         <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" />
                       </svg>
                       Enviando...
-                    </span>
-                  ) : status === 'success' ? (
-                    <span className="inline-flex items-center gap-2">
-                      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2.5}>
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
-                      </svg>
-                      Mensagem enviada!
                     </span>
                   ) : status === 'error' ? (
                     'Erro ao enviar. Tente novamente.'
