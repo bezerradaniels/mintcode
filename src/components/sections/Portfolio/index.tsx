@@ -10,7 +10,7 @@ export default function Portfolio() {
           <span className="inline-block px-4 py-2 bg-primary/10 text-primary-dark rounded-full text-sm font-medium mb-4">
             Portfolio
           </span>
-          <h2 className="text-3xl md:text-4xl font-bold text-text mb-2">
+          <h2 className="text-3xl md:text-4xl font-bold text-text mb-4">
             Projetos que entregamos
           </h2>
           <p className="text-gray-600 max-w-2xl mx-auto">

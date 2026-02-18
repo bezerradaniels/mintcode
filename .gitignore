@@ -12,6 +12,11 @@ dist
 dist-ssr
 *.local
 
+# PHP
+public/api/vendor/
+public/api/.env
+public/api/composer.lock
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
