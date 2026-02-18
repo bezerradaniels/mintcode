@@ -3,8 +3,9 @@ import nodemailer from 'nodemailer'
 import dotenv from 'dotenv'
 import { fileURLToPath } from 'url'
 import { dirname, join } from 'path'
+import { existsSync } from 'fs'
 
-dotenv.config()
+dotenv.config({ path: join(dirname(fileURLToPath(import.meta.url)), '.env') })
 
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = dirname(__filename)
@@ -14,8 +15,12 @@ const PORT = process.env.PORT || 3000
 
 app.use(express.json())
 
-// Serve static files from dist/
-app.use(express.static(join(__dirname, 'dist')))
+// Serve static files — from dist/ locally, or current dir on Hostinger
+const staticDir = existsSync(join(__dirname, 'dist'))
+  ? join(__dirname, 'dist')
+  : __dirname
+
+app.use(express.static(staticDir))
 
 // Contact form endpoint
 app.post('/api/contact', async (req, res) => {
@@ -90,7 +95,7 @@ app.post('/api/contact', async (req, res) => {
 
 // SPA fallback — serve index.html for all other routes
 app.get('*', (_req, res) => {
-  res.sendFile(join(__dirname, 'dist', 'index.html'))
+  res.sendFile(join(staticDir, 'index.html'))
 })
 
 app.listen(PORT, () => {
