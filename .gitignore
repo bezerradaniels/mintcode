@@ -17,6 +17,9 @@ public/api/vendor/
 public/api/.env
 public/api/composer.lock
 
+# Node environment
+.env
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
