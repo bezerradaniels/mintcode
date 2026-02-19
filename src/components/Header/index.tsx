@@ -1,19 +1,10 @@
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import Button from '../Button/index.tsx'
 import logo from '../../assets/images/logos/Mintocode Logo Branca.svg'
 import WhatsAppIcon from '@mui/icons-material/WhatsApp'
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
-  const [isScrolled, setIsScrolled] = useState(false)
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50)
-    }
-    window.addEventListener('scroll', handleScroll)
-    return () => window.removeEventListener('scroll', handleScroll)
-  }, [])
 
   const navLinks = [
     { label: 'Home', href: '#home' },
@@ -26,14 +17,14 @@ export default function Header() {
 
   return (
     <header
-      className={`sticky top-0 z-40 transition-all duration-300 ${isScrolled ? 'shadow-lg' : 'bg-transparent'}`}
-      style={isScrolled ? {
+      className={`sticky top-0 z-40 transition-all duration-300 shadow-lg`}
+      style={{
         background: 'linear-gradient(135deg, rgba(0, 37, 74, 0.95) 0%, rgba(0, 60, 120, 0.90) 100%)',
         backdropFilter: 'blur(24px) saturate(180%)',
         WebkitBackdropFilter: 'blur(24px) saturate(180%)',
         borderBottom: '1px solid rgba(255,255,255,0.08)',
         boxShadow: '0 4px 24px rgba(0,0,0,0.25), inset 0 1px 0 rgba(255,255,255,0.06)'
-      } : undefined}
+      }}
     >
       <div className="max-w-7xl mx-auto px-6">
         <div className="flex items-center justify-between h-20">
