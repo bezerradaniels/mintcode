@@ -1,3 +1,5 @@
+import GradientBorderCard from '../GradientBorderCard/index.tsx'
+
 export default function FAQ() {
   const faqs = [
     {
@@ -43,17 +45,16 @@ export default function FAQ() {
 
         <div className="grid md:grid-cols-2 gap-6">
           {faqs.map((faq, index) => (
-            <div
-              key={index}
-              className="bg-white rounded-2xl p-6 border border-gray-200 hover:border-primary/30 transition-colors duration-300"
-            >
-              <h3 className="text-lg font-semibold text-text mb-3">
-                {faq.question}
-              </h3>
-              <p className="text-gray-600 leading-relaxed">
-                {faq.answer}
-              </p>
-            </div>
+            <GradientBorderCard key={index}>
+              <div className="p-8 hover:shadow-lg transition-shadow duration-300">
+                <h3 className="text-lg font-semibold text-text mb-3">
+                  {faq.question}
+                </h3>
+                <p className="text-gray-600 leading-relaxed">
+                  {faq.answer}
+                </p>
+              </div>
+            </GradientBorderCard>
           ))}
         </div>
 
