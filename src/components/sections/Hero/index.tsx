@@ -154,11 +154,22 @@ export default function Hero() {
 
           {/* Right Column - Contact Form */}
           <div id="hero-form">
+            <style>{`
+              @keyframes border-glow {
+                0%   { box-shadow: 0 0 0 1.5px rgba(16,185,129,0.7), 0 0 12px rgba(16,185,129,0.15); }
+                25%  { box-shadow: 0 0 0 1.5px rgba(6,182,212,0.7),  0 0 12px rgba(6,182,212,0.15); }
+                50%  { box-shadow: 0 0 0 1.5px rgba(16,185,129,0.4), 0 0 12px rgba(16,185,129,0.08); }
+                75%  { box-shadow: 0 0 0 1.5px rgba(6,182,212,0.7),  0 0 12px rgba(6,182,212,0.15); }
+                100% { box-shadow: 0 0 0 1.5px rgba(16,185,129,0.7), 0 0 12px rgba(16,185,129,0.15); }
+              }
+              .form-border-anim {
+                animation: border-glow 3s ease-in-out infinite;
+              }
+            `}</style>
             <div 
-              className="relative rounded-[28px] p-8 sm:p-10"
+              className="form-border-anim relative rounded-[28px] p-8 sm:p-10"
               style={{
                 background: 'linear-gradient(135deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.02) 100%)',
-                border: '1px solid rgba(255,255,255,0.1)',
                 backdropFilter: 'blur(20px)'
               }}
             >
