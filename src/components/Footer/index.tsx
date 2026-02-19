@@ -1,3 +1,5 @@
+import logo from '../../assets/images/logos/Mintocode Logo Branca.svg'
+
 export default function Footer() {
   const whatsappLink = 'https://wa.me/5561998846590?text=Olá! Vim pelo site e gostaria de saber mais sobre criação de sites.'
   const instagramLink = 'https://instagram.com/mintcode.devs'
@@ -8,9 +10,9 @@ export default function Footer() {
         <div className="grid md:grid-cols-4 gap-12">
           <div className="md:col-span-2">
             <img 
-              src="/images/mintcode-logo.svg" 
+              src={logo} 
               alt="Mintcode" 
-              className="h-10 w-auto mb-4 brightness-0 invert"
+              className="h-10 w-auto mb-4"
             />
             <p className="text-gray-400 max-w-md">
               Transformamos suas ideias em sites profissionais que geram resultados. 
