@@ -1,6 +1,5 @@
 // Import real project mockups
 import hazakFitImage from '../../../assets/images/mockups/hazak-fit.png'
-import ativaTeaImage from '../../../assets/images/mockups/ativa-tea.png'
 import casaBebeImage from '../../../assets/images/mockups/casa-bebe.png'
 import clinicaSimImage from '../../../assets/images/mockups/clinica-sim.png'
 import graficaInovaImage from '../../../assets/images/mockups/grafica-inova-print.png'
@@ -9,12 +8,11 @@ import victorManuelImage from '../../../assets/images/mockups/victor-manuel.png'
 
 const projects = [
   { id: 1, tag: 'Site Institucional', name: 'Hazak Fit', imageSrc: hazakFitImage, imageAlt: 'Hazak Fit mockup' },
-  { id: 2, tag: 'E-commerce', name: 'Ativa Tea', imageSrc: ativaTeaImage, imageAlt: 'Ativa Tea mockup' },
-  { id: 3, tag: 'Landing Page', name: 'Casa Bebê', imageSrc: casaBebeImage, imageAlt: 'Casa Bebê mockup' },
-  { id: 4, tag: 'Site Institucional', name: 'Clínica Sim', imageSrc: clinicaSimImage, imageAlt: 'Clínica Sim mockup' },
-  { id: 5, tag: 'Gráfica', name: 'Inova Print', imageSrc: graficaInovaImage, imageAlt: 'Inova Print mockup' },
-  { id: 6, tag: 'Personal Trainer', name: 'Personal Juninho', imageSrc: personalJuninhoImage, imageAlt: 'Personal Juninho mockup' },
-  { id: 7, tag: 'Portfólio', name: 'Victor Manuel', imageSrc: victorManuelImage, imageAlt: 'Victor Manuel mockup' },
+  { id: 2, tag: 'Landing Page', name: 'Casa Bebê', imageSrc: casaBebeImage, imageAlt: 'Casa Bebê mockup' },
+  { id: 3, tag: 'Site Institucional', name: 'Clínica Sim', imageSrc: clinicaSimImage, imageAlt: 'Clínica Sim mockup' },
+  { id: 4, tag: 'Gráfica', name: 'Inova Print', imageSrc: graficaInovaImage, imageAlt: 'Inova Print mockup' },
+  { id: 5, tag: 'Personal Trainer', name: 'Personal Juninho', imageSrc: personalJuninhoImage, imageAlt: 'Personal Juninho mockup' },
+  { id: 6, tag: 'Portfólio', name: 'Victor Manuel', imageSrc: victorManuelImage, imageAlt: 'Victor Manuel mockup' },
 ]
 
 export default function PortfolioCarouselSection() {
