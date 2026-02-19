@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import Button from '../Button/index.tsx'
+import logo from '../../assets/images/logos/Mintocode Logo Branca.svg'
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -28,9 +29,9 @@ export default function Header() {
         <div className="flex items-center justify-between h-20">
           <a href="#home" className="flex items-center">
             <img 
-              src="/images/mintcode-logo.svg" 
+              src={logo} 
               alt="Mintcode" 
-              className="h-10 w-auto brightness-0 invert"
+              className="h-10 w-auto"
             />
           </a>
 
