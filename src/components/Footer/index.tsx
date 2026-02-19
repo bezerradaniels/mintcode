@@ -36,10 +36,10 @@ export default function Footer() {
           <div>
             <h4 className="font-semibold text-lg mb-4 text-text">Links Rápidos</h4>
             <nav className="flex flex-col gap-3">
-              <a href="#home" className="text-gray-500 hover:text-primary transition-colors">Home</a>
-              <a href="#servicos" className="text-gray-500 hover:text-primary transition-colors">Serviços</a>
-              <a href="#portfolio" className="text-gray-500 hover:text-primary transition-colors">Portfolio</a>
-              <a href="#sobre" className="text-gray-500 hover:text-primary transition-colors">Sobre</a>
+              <a href="#home" className="text-slate-900 hover:text-primary transition-colors">Home</a>
+              <a href="#servicos" className="text-slate-900 hover:text-primary transition-colors">Serviços</a>
+              <a href="#portfolio" className="text-slate-900 hover:text-primary transition-colors">Portfolio</a>
+              <a href="#sobre" className="text-slate-900 hover:text-primary transition-colors">Sobre</a>
             </nav>
           </div>
 

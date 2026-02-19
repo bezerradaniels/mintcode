@@ -2,7 +2,7 @@ export default function CTA() {
   const scrollToForm = () => document.getElementById('hero-form')?.scrollIntoView({ behavior: 'smooth' })
 
   return (
-    <section className="relative overflow-hidden bg-[#0A0A0F] py-8 sm:py-32">
+    <section className="relative overflow-hidden bg-[#0A0A0F] py-8 sm:py-12">
       {/* Animated gradient background */}
       <div 
         className="absolute inset-0 opacity-40"

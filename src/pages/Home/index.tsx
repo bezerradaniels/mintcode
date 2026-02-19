@@ -1,7 +1,6 @@
 import Header from '../../components/Header/index.tsx'
 import Footer from '../../components/Footer/index.tsx'
 import Hero from '../../components/sections/Hero/index.tsx'
-import Stats from '../../components/sections/Stats/index.tsx'
 import Services from '../../components/sections/Services/index.tsx'
 import PortfolioCarouselSection from '../../components/sections/Portfolio/PortfolioCarouselSection.tsx'
 import About from '../../components/sections/About/index.tsx'
@@ -15,7 +14,6 @@ export default function HomePage() {
       <Services />      
       <PortfolioCarouselSection />
       <About />
-      <Stats />
       <CTA />
       <Footer />
     </div>
