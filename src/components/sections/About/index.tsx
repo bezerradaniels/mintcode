@@ -13,9 +13,14 @@ export default function About() {
           alt="Equipe Mintcode"
           className="w-full h-full object-cover object-center"
         />
-        {/* Dark overlay — stronger on left for text readability */}
+        {/* Mobile: flat dark overlay */}
         <div
-          className="absolute inset-0"
+          className="absolute inset-0 lg:hidden"
+          style={{ background: 'rgba(5,10,25,0.75)' }}
+        />
+        {/* Desktop: gradient stronger on left */}
+        <div
+          className="absolute inset-0 hidden lg:block"
           style={{
             background: 'linear-gradient(to right, rgba(5,10,25,0.92) 0%, rgba(5,10,25,0.85) 50%, rgba(5,10,25,0.4) 100%)'
           }}
