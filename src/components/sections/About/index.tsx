@@ -1,53 +1,175 @@
 export default function About() {
+  const scrollToForm = () => document.getElementById('hero-form')?.scrollIntoView({ behavior: 'smooth' })
+
   return (
-    <section id="sobre" className="py-20 bg-primary">
-      <div className="max-w-6xl mx-auto px-6">
+    <section id="sobre" className="relative overflow-hidden py-20">
+
+      {/* Aurora boreal background */}
+      <div className="absolute inset-0">
+        <div
+          className="absolute inset-0"
+          style={{
+            background: 'linear-gradient(135deg, #0a0a1a 0%, #0d1f2d 40%, #0a1628 100%)'
+          }}
+        />
+        <div
+          className="absolute inset-0 opacity-60"
+          style={{
+            background: `
+              radial-gradient(ellipse 90% 60% at 0% 30%, rgba(16,185,129,0.35) 0%, transparent 55%),
+              radial-gradient(ellipse 70% 50% at 100% 20%, rgba(99,102,241,0.3) 0%, transparent 55%),
+              radial-gradient(ellipse 80% 60% at 50% 100%, rgba(6,182,212,0.25) 0%, transparent 55%)
+            `,
+            filter: 'blur(50px)'
+          }}
+        />
+        <div
+          className="absolute inset-0 opacity-30"
+          style={{
+            background: `
+              radial-gradient(ellipse 60% 40% at 20% 80%, rgba(139,92,246,0.3) 0%, transparent 50%),
+              radial-gradient(ellipse 50% 40% at 80% 60%, rgba(16,185,129,0.2) 0%, transparent 50%)
+            `,
+            filter: 'blur(70px)'
+          }}
+        />
+      </div>
+
+      <div className="relative z-10 max-w-7xl mx-auto px-6">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
+
+          {/* Left — text */}
           <div>
-            <span className="inline-block px-4 py-2 bg-white/20 text-white rounded-full text-sm font-medium mb-6">
+            <span className="inline-block px-4 py-2 bg-white/10 text-white/80 rounded-full text-sm font-medium mb-6 border border-white/10">
               Sobre a Mintcode
             </span>
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-6 leading-tight">
               Especialistas em criar experiências digitais memoráveis
             </h2>
-            <p className="text-white/90 mb-6 leading-relaxed">
-              Somos uma equipe apaixonada por tecnologia e design. Nosso objetivo é ajudar empresas 
+            <p className="text-white/75 mb-8 leading-relaxed text-[17px]">
+              Somos uma equipe apaixonada por tecnologia e design. Nosso objetivo é ajudar empresas
               a conquistarem seu espaço no mundo digital através de sites que realmente funcionam.
             </p>
-            <ul className="space-y-4 text-white/95">
-              <li className="flex items-center gap-3">
-                <span className="w-6 h-6 bg-white rounded-full flex items-center justify-center text-primary text-sm font-bold">✓</span>
-                Código limpo e otimizado
-              </li>
-              <li className="flex items-center gap-3">
-                <span className="w-6 h-6 bg-white rounded-full flex items-center justify-center text-primary text-sm font-bold">✓</span>
-                Design responsivo para todos os dispositivos
-              </li>
-              <li className="flex items-center gap-3">
-                <span className="w-6 h-6 bg-white rounded-full flex items-center justify-center text-primary text-sm font-bold">✓</span>
-                SEO otimizado para Google
-              </li>
-              <li className="flex items-center gap-3">
-                <span className="w-6 h-6 bg-white rounded-full flex items-center justify-center text-primary text-sm font-bold">✓</span>
-                Suporte dedicado pós-entrega
-              </li>
+            <ul className="space-y-4 text-white/90 mb-10">
+              {[
+                'Código limpo e otimizado',
+                'Design responsivo para todos os dispositivos',
+                'SEO otimizado para Google',
+                'Suporte dedicado pós-entrega',
+              ].map((item) => (
+                <li key={item} className="flex items-center gap-3">
+                  <span className="w-6 h-6 rounded-full flex items-center justify-center text-sm font-bold flex-shrink-0"
+                    style={{ background: 'linear-gradient(135deg, #10b981, #06b6d4)', color: '#fff' }}>
+                    ✓
+                  </span>
+                  {item}
+                </li>
+              ))}
             </ul>
+            <button
+              onClick={scrollToForm}
+              className="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl text-white font-semibold text-[16px] transition-all duration-300 hover:scale-105 cursor-pointer"
+              style={{ background: 'linear-gradient(135deg, #10b981 0%, #047857 100%)' }}
+            >
+              Solicitar Orçamento
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2.5}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+              </svg>
+            </button>
           </div>
-          <div className="relative">
-            <div className="bg-white/10 rounded-2xl p-8 backdrop-blur-sm">
-              <div className="bg-white/95 rounded-xl p-6 border border-white/20">
-                <pre className="text-sm text-primary-dark font-mono">
-                  <code>
-{`const mintcode = {
-  missão: "Criar sites incríveis",
-  valores: ["Qualidade", "Inovação"],
-  foco: "Resultado para o cliente"
-};`}
-                  </code>
-                </pre>
+
+          {/* Right — woman with laptop image + floating cards overlapping */}
+          <div className="flex justify-center lg:justify-end">
+            <style>{`
+              @keyframes float-a { 0%,100%{transform:translateY(0px)} 50%{transform:translateY(-10px)} }
+              @keyframes float-b { 0%,100%{transform:translateY(0px)} 50%{transform:translateY(-14px)} }
+              .float-a { animation: float-a 4s ease-in-out infinite; }
+              .float-b { animation: float-b 5s ease-in-out infinite 0.8s; }
+            `}</style>
+
+            <div className="relative w-full max-w-lg">
+              <img
+                src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=800&auto=format&fit=crop&q=80"
+                alt="Profissional sorrindo com laptop"
+                className="w-full h-auto object-contain drop-shadow-2xl rounded-2xl"
+                style={{ filter: 'drop-shadow(0 20px 60px rgba(16,185,129,0.2))' }}
+              />
+
+              {/* Card 1 — left, upper third */}
+              <div
+                className="float-a absolute left-0 top-1/4 -translate-x-1/2 flex items-center gap-3 px-5 py-4 rounded-2xl whitespace-nowrap"
+                style={{
+                  background: 'rgba(10,10,30,0.7)',
+                  backdropFilter: 'blur(20px)',
+                  border: '1px solid rgba(255,255,255,0.15)',
+                  boxShadow: '0 8px 32px rgba(0,0,0,0.4)'
+                }}
+              >
+                <div className="w-12 h-12 rounded-xl flex items-center justify-center shrink-0" style={{ background: 'linear-gradient(135deg,#10b981,#047857)' }}>
+                  <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2.5}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                  </svg>
+                </div>
+                <p className="text-white text-base font-bold">Sites Rápidos</p>
               </div>
+
+              {/* Card 2 — left, lower third */}
+              <div
+                className="float-b absolute left-0 top-2/3 -translate-x-1/2 flex items-center gap-3 px-5 py-4 rounded-2xl whitespace-nowrap"
+                style={{
+                  background: 'rgba(10,10,30,0.7)',
+                  backdropFilter: 'blur(20px)',
+                  border: '1px solid rgba(255,255,255,0.15)',
+                  boxShadow: '0 8px 32px rgba(0,0,0,0.4)'
+                }}
+              >
+                <div className="w-12 h-12 rounded-xl flex items-center justify-center shrink-0" style={{ background: 'linear-gradient(135deg,#06b6d4,#0891b2)' }}>
+                  <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2.5}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" />
+                  </svg>
+                </div>
+                <p className="text-white text-base font-bold">100% Responsivo</p>
+              </div>
+
+              {/* Card 3 — right, upper third */}
+              <div
+                className="float-b absolute right-0 top-1/4 translate-x-1/2 flex items-center gap-3 px-5 py-4 rounded-2xl whitespace-nowrap"
+                style={{
+                  background: 'rgba(10,10,30,0.7)',
+                  backdropFilter: 'blur(20px)',
+                  border: '1px solid rgba(255,255,255,0.15)',
+                  boxShadow: '0 8px 32px rgba(0,0,0,0.4)'
+                }}
+              >
+                <div className="w-12 h-12 rounded-xl flex items-center justify-center shrink-0" style={{ background: 'linear-gradient(135deg,#6366f1,#8b5cf6)' }}>
+                  <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2.5}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                  </svg>
+                </div>
+                <p className="text-white text-base font-bold">SEO #1 Google</p>
+              </div>
+
+              {/* Card 4 — right, lower third */}
+              <div
+                className="float-a absolute right-0 top-2/3 translate-x-1/2 flex items-center gap-3 px-5 py-4 rounded-2xl whitespace-nowrap"
+                style={{
+                  background: 'rgba(10,10,30,0.7)',
+                  backdropFilter: 'blur(20px)',
+                  border: '1px solid rgba(255,255,255,0.15)',
+                  boxShadow: '0 8px 32px rgba(0,0,0,0.4)'
+                }}
+              >
+                <div className="w-12 h-12 rounded-xl flex items-center justify-center shrink-0" style={{ background: 'linear-gradient(135deg,#f59e0b,#d97706)' }}>
+                  <svg className="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 20 20">
+                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                  </svg>
+                </div>
+                <p className="text-white text-base font-bold">5★ Avaliações</p>
+              </div>
+
             </div>
           </div>
+
         </div>
       </div>
     </section>

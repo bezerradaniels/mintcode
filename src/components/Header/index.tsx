@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import Button from '../Button/index.tsx'
 import logo from '../../assets/images/logos/Mintocode Logo Branca.svg'
+import WhatsAppIcon from '@mui/icons-material/WhatsApp'
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -50,7 +51,9 @@ export default function Header() {
           <div className="hidden md:block">
             <Button 
               onClick={() => window.open(whatsappLink, '_blank')}
+              className="inline-flex items-center gap-2 cursor-pointer"
             >
+              <WhatsAppIcon style={{ fontSize: 20 }} />
               Fale Conosco
             </Button>
           </div>

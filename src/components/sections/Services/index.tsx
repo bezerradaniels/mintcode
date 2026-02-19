@@ -8,7 +8,7 @@ import Button from '../../Button/index.tsx'
 import GradientBorderCard from '../GradientBorderCard/index.tsx'
 
 export default function Services() {
-  const whatsappLink = 'https://wa.me/5561998846590?text=Olá! Vim pelo site e gostaria de saber mais sobre criação de sites.'
+  const scrollToForm = () => document.getElementById('hero-form')?.scrollIntoView({ behavior: 'smooth' })
   
   const services = [
     {
@@ -96,10 +96,10 @@ export default function Services() {
             </p>
             <Button 
               size="lg"
-              className="bg-primary text-white hover:bg-primary-dark"
-              onClick={() => window.open(whatsappLink, '_blank')}
+              className="bg-primary text-white hover:bg-primary-dark cursor-pointer"
+              onClick={scrollToForm}
             >
-              Falar no WhatsApp
+              Solicitar Orçamento
             </Button>
           </div>
         </div>
