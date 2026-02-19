@@ -71,24 +71,40 @@ export default function Header() {
         </div>
 
         {isMenuOpen && (
-          <div className="md:hidden py-4 border-t border-white/20 bg-text/90 backdrop-blur-sm">
-            <nav className="flex flex-col gap-4">
+          <div
+            className="md:hidden mx-3 mb-3 rounded-2xl overflow-hidden"
+            style={{
+              background: 'rgba(255, 255, 255, 0.08)',
+              backdropFilter: 'blur(40px) saturate(180%)',
+              WebkitBackdropFilter: 'blur(40px) saturate(180%)',
+              border: '1px solid rgba(255, 255, 255, 0.15)',
+              boxShadow: '0 8px 32px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.15)',
+            }}
+          >
+            {/* Glossy top sheen */}
+            <div
+              className="absolute top-0 left-0 right-0 h-px"
+              style={{ background: 'linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent)' }}
+            />
+            <nav className="flex flex-col px-4 py-3 gap-1">
               {navLinks.map((link) => (
                 <a
                   key={link.href}
                   href={link.href}
-                  className="text-white hover:text-primary font-medium transition-colors"
+                  className="text-white/90 hover:text-primary font-medium transition-all duration-200 px-3 py-2.5 rounded-xl hover:bg-white/10 text-[15px]"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   {link.label}
                 </a>
               ))}
-              <Button 
-                onClick={() => window.open(whatsappLink, '_blank')}
-                className="mt-2"
-              >
-                Fale Conosco
-              </Button>
+              <div className="pt-2 pb-1">
+                <Button
+                  onClick={() => window.open(whatsappLink, '_blank')}
+                  className="w-full"
+                >
+                  Fale Conosco
+                </Button>
+              </div>
             </nav>
           </div>
         )}
