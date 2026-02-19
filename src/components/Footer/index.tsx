@@ -5,7 +5,19 @@ export default function Footer() {
   const instagramLink = 'https://instagram.com/mintcode.devs'
 
   return (
-    <footer className="bg-white text-text py-16" style={{ borderTop: '1px solid rgba(0,0,0,0.06)' }}>
+    <footer className="relative overflow-hidden bg-white text-text py-16" style={{ borderTop: '1px solid rgba(0,0,0,0.06)' }}>
+
+      {/* Bottom gradient band — same as Services */}
+      <div
+        className="pointer-events-none absolute inset-x-0 bottom-0 h-[240px]"
+        style={{
+          background: 'linear-gradient(to right, #BCF8C4 0%, #B2F5FA 50%, #9FBDFF 100%)',
+          maskImage: 'linear-gradient(to top, rgba(0,0,0,1), rgba(0,0,0,0))',
+          WebkitMaskImage: 'linear-gradient(to top, rgba(0,0,0,1), rgba(0,0,0,0))',
+          maskSize: '100% 100%',
+          maskRepeat: 'no-repeat'
+        }}
+      />
       <div className="max-w-7xl mx-auto px-6">
         <div className="grid md:grid-cols-4 gap-12">
           <div className="md:col-span-2">
