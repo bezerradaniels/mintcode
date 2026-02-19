@@ -7,12 +7,12 @@ import personalJuninhoImage from '../../../assets/images/mockups/personal-juninh
 import victorManuelImage from '../../../assets/images/mockups/victor-manuel.png'
 
 const projects = [
-  { id: 1, tag: 'Site Institucional', name: 'Hazak Fit', imageSrc: hazakFitImage, imageAlt: 'Hazak Fit mockup' },
-  { id: 2, tag: 'Landing Page', name: 'Casa Bebê', imageSrc: casaBebeImage, imageAlt: 'Casa Bebê mockup' },
-  { id: 3, tag: 'Site Institucional', name: 'Clínica Sim', imageSrc: clinicaSimImage, imageAlt: 'Clínica Sim mockup' },
-  { id: 4, tag: 'Médica', name: 'Dra. Ane Elise', imageSrc: draAneEliseImage, imageAlt: 'Dra. Ane Elise mockup' },
+  { id: 1, tag: 'Academia', name: 'Hazak Fit', imageSrc: hazakFitImage, imageAlt: 'Hazak Fit mockup' },
+  { id: 2, tag: 'Hub de Babás', name: 'Casa Bebê', imageSrc: casaBebeImage, imageAlt: 'Casa Bebê mockup' },
+  { id: 3, tag: 'Centro clínico', name: 'Clínica Sim', imageSrc: clinicaSimImage, imageAlt: 'Clínica Sim mockup' },
+  { id: 4, tag: 'Dentista', name: 'Dra. Ane Elise', imageSrc: draAneEliseImage, imageAlt: 'Dra. Ane Elise mockup' },
   { id: 5, tag: 'Personal Trainer', name: 'Personal Juninho', imageSrc: personalJuninhoImage, imageAlt: 'Personal Juninho mockup' },
-  { id: 6, tag: 'Portfólio', name: 'Victor Manuel', imageSrc: victorManuelImage, imageAlt: 'Victor Manuel mockup' },
+  { id: 6, tag: 'Engenheiro', name: 'Victor Manuel', imageSrc: victorManuelImage, imageAlt: 'Victor Manuel mockup' },
 ]
 
 export default function PortfolioCarouselSection() {
