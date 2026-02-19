@@ -26,9 +26,9 @@ export default function Header() {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${isScrolled ? 'shadow-lg' : 'bg-transparent'}`}
+      className={`sticky top-0 z-40 transition-all duration-300 ${isScrolled ? 'shadow-lg' : 'bg-transparent'}`}
       style={isScrolled ? {
-        background: 'rgba(0, 37, 74, 0.80)',
+        background: 'linear-gradient(135deg, rgba(0, 37, 74, 0.95) 0%, rgba(0, 60, 120, 0.90) 100%)',
         backdropFilter: 'blur(24px) saturate(180%)',
         WebkitBackdropFilter: 'blur(24px) saturate(180%)',
         borderBottom: '1px solid rgba(255,255,255,0.08)',
