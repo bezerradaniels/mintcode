@@ -115,7 +115,7 @@ export default function About() {
 
               {/* Card 2 — left, lower third */}
               <div
-                className="float-b absolute right-1 lg:left-0 top-2/3 lg:-translate-x-1/2 flex items-center gap-2 px-3 py-2 lg:px-5 lg:py-4 rounded-2xl whitespace-nowrap"
+                className="float-a absolute left-0 top-[65%] lg:-translate-x-1/2 flex items-center gap-2 px-3 py-2 lg:px-5 lg:py-4 rounded-2xl whitespace-nowrap"
                 style={{
                   background: 'rgba(10,10,30,0.7)',
                   backdropFilter: 'blur(20px)',
@@ -151,7 +151,7 @@ export default function About() {
 
               {/* Card 4 — right, lower third */}
               <div
-                className="float-a absolute left-4 lg:right-0 bottom-2 lg:bottom-0 lg:translate-x-1/2 flex items-center gap-2 px-3 py-2 lg:px-5 lg:py-4 rounded-2xl whitespace-nowrap"
+                className="float-b absolute right-4 bottom-4 lg:right-0 lg:bottom-0 lg:translate-x-1/2 flex items-center gap-2 px-3 py-2 lg:px-5 lg:py-4 rounded-2xl whitespace-nowrap"
                 style={{
                   background: 'rgba(10,10,30,0.7)',
                   backdropFilter: 'blur(20px)',
