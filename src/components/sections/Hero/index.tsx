@@ -134,7 +134,7 @@ export default function Hero() {
             <div className="lg:hidden flex justify-center mt-8">
               <button
                 onClick={() => document.getElementById('hero-form')?.scrollIntoView({ behavior: 'smooth' })}
-                className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-primary hover:bg-primary-dark text-white font-semibold text-[15px] transition-all duration-300 hover:scale-105"
+                className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-primary hover:bg-primary-dark text-white font-semibold text-[15px] transition-all duration-300 hover:scale-105 cursor-pointer"
               >
                 Solicitar Orçamento
                 <svg

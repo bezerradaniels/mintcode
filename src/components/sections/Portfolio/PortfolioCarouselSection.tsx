@@ -104,7 +104,7 @@ export default function PortfolioCarouselSection() {
         <div className="text-center mt-12">
           <button
             onClick={() => document.getElementById('hero-form')?.scrollIntoView({ behavior: 'smooth' })}
-            className="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl bg-primary hover:bg-primary-dark text-white font-semibold text-[16px] transition-all duration-300 hover:scale-105"
+            className="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl bg-primary hover:bg-primary-dark text-white font-semibold text-[16px] transition-all duration-300 hover:scale-105 cursor-pointer"
           >
             Solicitar Orçamento
             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2.5}>

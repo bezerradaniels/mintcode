@@ -80,7 +80,7 @@ export default function FAQ() {
           <p className="text-gray-500 mb-4">Ainda tem dúvidas?</p>
           <a
             href="#hero-form"
-            className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-primary hover:bg-primary-dark text-white font-semibold transition-all duration-300 hover:scale-105"
+            className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-primary hover:bg-primary-dark text-white font-semibold transition-all duration-300 hover:scale-105 cursor-pointer"
           >
             Fale com um especialista
             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2.5}>
