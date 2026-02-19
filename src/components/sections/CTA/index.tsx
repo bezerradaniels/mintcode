@@ -62,10 +62,7 @@ export default function CTA() {
             {/* CTA Button */}
             <button
               onClick={scrollToForm}
-              className="group inline-flex items-center gap-3 px-8 py-4 rounded-2xl text-white font-semibold text-[17px] transition-all duration-300 hover:scale-105 cursor-pointer"
-              style={{
-                background: 'linear-gradient(135deg, #10b981 0%, #047857 100%)'
-              }}
+              className="group inline-flex items-center gap-3 px-8 py-4 rounded-2xl bg-primary hover:bg-primary-dark text-white font-semibold text-[17px] transition-all duration-300 hover:scale-105 cursor-pointer"
             >
               Solicitar Orçamento
               <svg className="w-5 h-5 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2.5}>

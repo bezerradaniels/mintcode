@@ -134,8 +134,7 @@ export default function Hero() {
             <div className="lg:hidden flex justify-center mt-8">
               <button
                 onClick={() => document.getElementById('hero-form')?.scrollIntoView({ behavior: 'smooth' })}
-                className="inline-flex items-center gap-2 px-6 py-3 rounded-xl text-white font-semibold text-[15px] transition-all duration-300 hover:scale-105"
-                style={{ background: 'linear-gradient(135deg, #10b981 0%, #047857 100%)' }}
+                className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-primary hover:bg-primary-dark text-white font-semibold text-[15px] transition-all duration-300 hover:scale-105"
               >
                 Solicitar Orçamento
                 <svg
@@ -154,18 +153,6 @@ export default function Hero() {
 
           {/* Right Column - Contact Form */}
           <div id="hero-form">
-            <style>{`
-              @keyframes border-glow {
-                0%   { box-shadow: 0 0 0 1.5px rgba(16,185,129,0.7), 0 0 12px rgba(16,185,129,0.15); }
-                25%  { box-shadow: 0 0 0 1.5px rgba(6,182,212,0.7),  0 0 12px rgba(6,182,212,0.15); }
-                50%  { box-shadow: 0 0 0 1.5px rgba(16,185,129,0.4), 0 0 12px rgba(16,185,129,0.08); }
-                75%  { box-shadow: 0 0 0 1.5px rgba(6,182,212,0.7),  0 0 12px rgba(6,182,212,0.15); }
-                100% { box-shadow: 0 0 0 1.5px rgba(16,185,129,0.7), 0 0 12px rgba(16,185,129,0.15); }
-              }
-              .form-border-anim {
-                animation: border-glow 3s ease-in-out infinite;
-              }
-            `}</style>
             <div 
               className="form-border-anim relative rounded-[28px] p-8 sm:p-10"
               style={{
@@ -268,10 +255,7 @@ export default function Hero() {
                 <button
                   type="submit"
                   disabled={status === 'sending'}
-                  className="w-full py-4 rounded-xl text-white font-semibold text-[16px] transition-all duration-300 hover:scale-[1.02] disabled:opacity-60 disabled:cursor-not-allowed cursor-pointer"
-                  style={{
-                    background: 'linear-gradient(135deg, #10b981 0%, #047857 100%)',
-                  }}
+                  className="w-full py-4 rounded-xl bg-primary hover:bg-primary-dark text-white font-semibold text-[16px] transition-all duration-300 hover:scale-[1.02] disabled:opacity-60 disabled:cursor-not-allowed cursor-pointer"
                 >
                   {status === 'sending' ? (
                     <span className="inline-flex items-center gap-2">

@@ -58,7 +58,7 @@ export default function About() {
                 'Suporte dedicado pós-entrega',
               ].map((item) => (
                 <li key={item} className="flex items-center gap-3">
-                  <span className="w-6 h-6 rounded-full flex items-center justify-center text-sm font-bold flex-shrink-0"
+                  <span className="w-6 h-6 rounded-full flex items-center justify-center text-sm font-bold shrink-0"
                     style={{ background: 'linear-gradient(135deg, #10b981, #06b6d4)', color: '#fff' }}>
                     ✓
                   </span>
@@ -68,8 +68,7 @@ export default function About() {
             </ul>
             <button
               onClick={scrollToForm}
-              className="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl text-white font-semibold text-[16px] transition-all duration-300 hover:scale-105 cursor-pointer"
-              style={{ background: 'linear-gradient(135deg, #10b981 0%, #047857 100%)' }}
+              className="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl bg-primary hover:bg-primary-dark text-white font-semibold text-[16px] transition-all duration-300 hover:scale-105 cursor-pointer"
             >
               Solicitar Orçamento
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2.5}>
@@ -80,13 +79,6 @@ export default function About() {
 
           {/* Right — woman with laptop image + floating cards overlapping */}
           <div className="flex justify-center lg:justify-end">
-            <style>{`
-              @keyframes float-a { 0%,100%{transform:translateY(0px)} 50%{transform:translateY(-10px)} }
-              @keyframes float-b { 0%,100%{transform:translateY(0px)} 50%{transform:translateY(-14px)} }
-              .float-a { animation: float-a 4s ease-in-out infinite; }
-              .float-b { animation: float-b 5s ease-in-out infinite 0.8s; }
-            `}</style>
-
             <div className="relative w-full max-w-lg">
               <img
                 src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=800&auto=format&fit=crop&q=80"
