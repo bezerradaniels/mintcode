@@ -1,17 +1,4 @@
 <?php
-require __DIR__ . '/vendor/autoload.php';
-
-use PHPMailer\PHPMailer\PHPMailer;
-use PHPMailer\PHPMailer\Exception;
-
-// Load environment variables from .env
-$env = parse_ini_file(__DIR__ . '/.env');
-if (!$env) {
-    http_response_code(500);
-    echo json_encode(['error' => 'Configuração do servidor inválida']);
-    exit;
-}
-
 header('Content-Type: application/json');
 header('Access-Control-Allow-Origin: *');
 header('Access-Control-Allow-Methods: POST, OPTIONS');
@@ -58,86 +45,53 @@ if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
 }
 
 // Email configuration
-$to       = 'daniel.ddsb@gmail.com';
-$subject  = "Novo contato pelo site - $name";
+$to      = 'daniel.ddsb@gmail.com';
+$subject = "=?UTF-8?B?" . base64_encode("Novo contato pelo site - $name") . "?=";
 
 // HTML email body
 $htmlBody = "
-<!DOCTYPE html>
 <html>
-<head>
-    <meta charset='UTF-8'>
-    <style>
-        body { font-family: Arial, sans-serif; background: #f4f4f4; margin: 0; padding: 20px; }
-        .container { max-width: 600px; margin: 0 auto; background: #ffffff; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
-        .header { background: linear-gradient(135deg, #10b981, #047857); padding: 30px; text-align: center; }
-        .header h1 { color: #ffffff; margin: 0; font-size: 22px; }
-        .content { padding: 30px; }
-        .field { margin-bottom: 20px; }
-        .field label { display: block; font-size: 12px; font-weight: bold; color: #6b7280; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 6px; }
-        .field p { margin: 0; font-size: 16px; color: #1f2937; padding: 10px; background: #f9fafb; border-radius: 8px; border-left: 3px solid #10b981; }
-        .footer { padding: 20px 30px; background: #f9fafb; text-align: center; font-size: 12px; color: #9ca3af; }
-    </style>
-</head>
-<body>
-    <div class='container'>
-        <div class='header'>
-            <h1>Novo Contato pelo Site</h1>
-        </div>
-        <div class='content'>
-            <div class='field'>
-                <label>Nome</label>
-                <p>$name</p>
-            </div>
-            <div class='field'>
-                <label>E-mail</label>
-                <p>$email</p>
-            </div>
-            <div class='field'>
-                <label>Telefone / WhatsApp</label>
-                <p>$phone</p>
-            </div>
-            <div class='field'>
-                <label>Mensagem</label>
-                <p>$message</p>
-            </div>
-        </div>
-        <div class='footer'>
-            Enviado pelo formulário de contato do site mintcode.com.br
-        </div>
+<head><meta charset='UTF-8'></head>
+<body style='font-family:Arial,sans-serif;background:#f4f4f4;margin:0;padding:20px'>
+  <div style='max-width:600px;margin:0 auto;background:#fff;border-radius:12px;overflow:hidden;box-shadow:0 2px 10px rgba(0,0,0,0.1)'>
+    <div style='background:linear-gradient(135deg,#10b981,#047857);padding:30px;text-align:center'>
+      <h1 style='color:#fff;margin:0;font-size:22px'>Novo Contato pelo Site</h1>
     </div>
+    <div style='padding:30px'>
+      <div style='margin-bottom:20px'>
+        <p style='font-size:12px;font-weight:bold;color:#6b7280;text-transform:uppercase;letter-spacing:0.5px;margin:0 0 6px'>Nome</p>
+        <p style='margin:0;font-size:16px;color:#1f2937;padding:10px;background:#f9fafb;border-radius:8px;border-left:3px solid #10b981'>$name</p>
+      </div>
+      <div style='margin-bottom:20px'>
+        <p style='font-size:12px;font-weight:bold;color:#6b7280;text-transform:uppercase;letter-spacing:0.5px;margin:0 0 6px'>E-mail</p>
+        <p style='margin:0;font-size:16px;color:#1f2937;padding:10px;background:#f9fafb;border-radius:8px;border-left:3px solid #10b981'>$email</p>
+      </div>
+      <div style='margin-bottom:20px'>
+        <p style='font-size:12px;font-weight:bold;color:#6b7280;text-transform:uppercase;letter-spacing:0.5px;margin:0 0 6px'>Telefone / WhatsApp</p>
+        <p style='margin:0;font-size:16px;color:#1f2937;padding:10px;background:#f9fafb;border-radius:8px;border-left:3px solid #10b981'>$phone</p>
+      </div>
+      <div style='margin-bottom:20px'>
+        <p style='font-size:12px;font-weight:bold;color:#6b7280;text-transform:uppercase;letter-spacing:0.5px;margin:0 0 6px'>Mensagem</p>
+        <p style='margin:0;font-size:16px;color:#1f2937;padding:10px;background:#f9fafb;border-radius:8px;border-left:3px solid #10b981'>$message</p>
+      </div>
+    </div>
+    <div style='padding:20px 30px;background:#f9fafb;text-align:center;font-size:12px;color:#9ca3af'>
+      Enviado pelo formulário de contato do site mintcode.com.br
+    </div>
+  </div>
 </body>
-</html>
-";
+</html>";
 
-// SMTP via PHPMailer (Hostinger)
-$mail = new PHPMailer(true);
+// Headers for mail()
+$headers  = "MIME-Version: 1.0\r\n";
+$headers .= "Content-Type: text/html; charset=UTF-8\r\n";
+$headers .= "From: Mintcode <contato@mintcode.com.br>\r\n";
+$headers .= "Reply-To: $name <$email>\r\n";
 
-try {
-    $mail->isSMTP();
-    $mail->Host       = $env['SMTP_HOST'];
-    $mail->SMTPAuth   = true;
-    $mail->Username   = $env['SMTP_USERNAME'];
-    $mail->Password   = $env['SMTP_PASSWORD'];
-    $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
-    $mail->Port       = (int) $env['SMTP_PORT'];
-    $mail->CharSet    = 'UTF-8';
-
-    $mail->setFrom($env['SMTP_FROM'], $env['SMTP_FROM_NAME']);
-    $mail->addAddress($env['MAIL_TO']);
-    $mail->addReplyTo($email, $name);
-
-    $mail->isHTML(true);
-    $mail->Subject = $subject;
-    $mail->Body    = $htmlBody;
-    $mail->AltBody = "Nome: $name\nE-mail: $email\nTelefone: $phone\nMensagem: $message";
-
-    $mail->send();
-
-    http_response_code(200);
+// Send email using native PHP mail()
+if (mail($to, $subject, $htmlBody, $headers)) {
     echo json_encode(['success' => true, 'message' => 'E-mail enviado com sucesso']);
-
-} catch (Exception $e) {
+} else {
     http_response_code(500);
-    echo json_encode(['error' => 'Falha ao enviar e-mail: ' . $mail->ErrorInfo]);
+    echo json_encode(['error' => 'Falha ao enviar e-mail']);
 }
