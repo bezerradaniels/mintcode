@@ -16,10 +16,10 @@ export default function Footer() {
           WebkitMaskImage: 'linear-gradient(to top, rgba(0,0,0,1), rgba(0,0,0,0))',
           maskSize: '100% 100%',
           maskRepeat: 'no-repeat',
-          zIndex: -1
+          zIndex: 0
         }}
       />
-      <div className="max-w-7xl mx-auto px-6">
+      <div className="max-w-7xl mx-auto px-6 relative z-10">
         <div className="grid md:grid-cols-4 gap-12">
           <div className="md:col-span-2">
             <img 
