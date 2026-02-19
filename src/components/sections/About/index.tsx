@@ -80,16 +80,24 @@ export default function About() {
           {/* Right — woman with laptop image + floating cards overlapping */}
           <div className="flex justify-center lg:justify-end">
             <div className="relative w-full max-w-lg">
-              <img
-                src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=800&auto=format&fit=crop&q=80"
-                alt="Profissional sorrindo com laptop"
-                className="w-full h-auto object-contain drop-shadow-2xl rounded-2xl"
-                style={{ filter: 'drop-shadow(0 20px 60px rgba(16,185,129,0.2))' }}
-              />
+              <div 
+                className="w-full h-auto drop-shadow-2xl rounded-3xl overflow-hidden"
+                style={{ 
+                  filter: 'drop-shadow(0 20px 60px rgba(16,185,129,0.2))',
+                  transform: 'scale(0.9)'
+                }}
+              >
+                <img
+                  src="/src/assets/images/team/mintcode-sobre-nos.webp"
+                  alt="Equipe Mintcode"
+                  className="w-full h-auto object-cover"
+                  style={{ transform: 'scale(1.4)' }}
+                />
+              </div>
 
               {/* Card 1 — left, upper third */}
               <div
-                className="float-a absolute left-0 top-1/4 -translate-x-1/2 flex items-center gap-3 px-5 py-4 rounded-2xl whitespace-nowrap"
+                className="float-a absolute left-0 top-[45%] lg:-translate-x-1/2 flex items-center gap-3 px-4 py-3 lg:px-5 lg:py-4 rounded-2xl whitespace-nowrap"
                 style={{
                   background: 'rgba(10,10,30,0.7)',
                   backdropFilter: 'blur(20px)',
@@ -107,7 +115,7 @@ export default function About() {
 
               {/* Card 2 — left, lower third */}
               <div
-                className="float-b absolute left-0 top-2/3 -translate-x-1/2 flex items-center gap-3 px-5 py-4 rounded-2xl whitespace-nowrap"
+                className="float-b absolute right-1 lg:left-0 top-2/3 lg:-translate-x-1/2 flex items-center gap-3 px-4 py-3 lg:px-5 lg:py-4 rounded-2xl whitespace-nowrap"
                 style={{
                   background: 'rgba(10,10,30,0.7)',
                   backdropFilter: 'blur(20px)',
@@ -125,7 +133,7 @@ export default function About() {
 
               {/* Card 3 — right, upper third */}
               <div
-                className="float-b absolute right-0 top-1/4 translate-x-1/2 flex items-center gap-3 px-5 py-4 rounded-2xl whitespace-nowrap"
+                className="float-b absolute right-2 lg:right-0 top-2 lg:top-0 lg:translate-x-1/2 flex items-center gap-3 px-4 py-3 lg:px-5 lg:py-4 rounded-2xl whitespace-nowrap"
                 style={{
                   background: 'rgba(10,10,30,0.7)',
                   backdropFilter: 'blur(20px)',
@@ -143,7 +151,7 @@ export default function About() {
 
               {/* Card 4 — right, lower third */}
               <div
-                className="float-a absolute right-0 top-2/3 translate-x-1/2 flex items-center gap-3 px-5 py-4 rounded-2xl whitespace-nowrap"
+                className="float-a absolute left-4 lg:right-0 bottom-2 lg:bottom-0 lg:translate-x-1/2 flex items-center gap-3 px-4 py-3 lg:px-5 lg:py-4 rounded-2xl whitespace-nowrap"
                 style={{
                   background: 'rgba(10,10,30,0.7)',
                   backdropFilter: 'blur(20px)',

@@ -1,6 +1,8 @@
-import GradientBorderCard from '../GradientBorderCard/index.tsx'
+import { useState } from 'react'
 
 export default function FAQ() {
+  const [openIndex, setOpenIndex] = useState<number | null>(null)
+
   const faqs = [
     {
       question: "Quanto tempo demora para criar um site?",
@@ -28,9 +30,11 @@ export default function FAQ() {
     }
   ]
 
+  const toggle = (index: number) => setOpenIndex(openIndex === index ? null : index)
+
   return (
     <section id="faq" className="py-20 bg-white">
-      <div className="max-w-6xl mx-auto px-6">
+      <div className="max-w-3xl mx-auto px-6">
         <div className="text-center mb-16">
           <span className="inline-block px-4 py-2 bg-primary/10 text-primary-dark rounded-full text-sm font-medium mb-6">
             Dúvidas Frequentes
@@ -43,25 +47,37 @@ export default function FAQ() {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-6">
+        <div className="flex flex-col gap-3">
           {faqs.map((faq, index) => (
-            <GradientBorderCard key={index}>
-              <div className="p-8 hover:shadow-lg transition-shadow duration-300">
-                <h3 className="text-lg font-semibold text-text mb-3">
-                  {faq.question}
-                </h3>
-                <p className="text-gray-600 leading-relaxed">
+            <div
+              key={index}
+              className="rounded-2xl border border-gray-200 overflow-hidden transition-all duration-300 hover:border-primary/30"
+            >
+              <button
+                onClick={() => toggle(index)}
+                className="w-full flex items-center justify-between px-6 py-5 text-left cursor-pointer"
+              >
+                <span className="text-base font-semibold text-text pr-4">{faq.question}</span>
+                <svg
+                  className={`w-5 h-5 text-primary shrink-0 transition-transform duration-300 ${openIndex === index ? 'rotate-180' : ''}`}
+                  fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2.5}
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+                </svg>
+              </button>
+              <div
+                className={`overflow-hidden transition-all duration-300 ${openIndex === index ? 'max-h-48 opacity-100' : 'max-h-0 opacity-0'}`}
+              >
+                <p className="px-6 pb-5 text-gray-600 leading-relaxed">
                   {faq.answer}
                 </p>
               </div>
-            </GradientBorderCard>
+            </div>
           ))}
         </div>
 
         <div className="mt-16 text-center">
-          <p className="text-gray-500 mb-4">
-            Ainda tem dúvidas?
-          </p>
+          <p className="text-gray-500 mb-4">Ainda tem dúvidas?</p>
           <a
             href="#hero-form"
             className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-primary hover:bg-primary-dark text-white font-semibold transition-all duration-300 hover:scale-105"
