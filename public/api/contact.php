@@ -82,16 +82,85 @@ $htmlBody = "
 </body>
 </html>";
 
-// Headers for mail()
-$headers  = "MIME-Version: 1.0\r\n";
-$headers .= "Content-Type: text/html; charset=UTF-8\r\n";
-$headers .= "From: Mintcode <contato@mintcode.com.br>\r\n";
-$headers .= "Reply-To: $name <$email>\r\n";
+// SMTP configuration (Hostinger)
+$smtpHost     = 'smtp.hostinger.com';
+$smtpPort     = 587;
+$smtpUser     = 'contato@mintcode.com.br';
+$smtpPass     = 'Dubox7469@';
+$fromEmail    = 'contato@mintcode.com.br';
+$fromName     = 'Mintcode Site';
+$toEmail      = 'daniel.ddsb@gmail.com';
+$emailSubject = "Novo contato pelo site - $name";
 
-// Send email using native PHP mail()
-if (mail($to, $subject, $htmlBody, $headers)) {
+// Send via SMTP using PHP streams
+function smtpSend($host, $port, $user, $pass, $from, $fromName, $to, $subject, $body, $replyTo) {
+    $errno = 0; $errstr = '';
+    $socket = fsockopen("tcp://$host", $port, $errno, $errstr, 15);
+    if (!$socket) return "Conexão falhou: $errstr ($errno)";
+
+    $read = function() use ($socket) {
+        $data = '';
+        while ($line = fgets($socket, 515)) {
+            $data .= $line;
+            if (substr($line, 3, 1) === ' ') break;
+        }
+        return $data;
+    };
+
+    $send = function($cmd) use ($socket) { fwrite($socket, $cmd . "\r\n"); };
+
+    $read(); // 220 greeting
+    $send("EHLO mintcode.com.br");
+    $ehlo = $read();
+    if (strpos($ehlo, 'STARTTLS') !== false) {
+        $send("STARTTLS");
+        $read();
+        stream_socket_enable_crypto($socket, true, STREAM_CRYPTO_METHOD_TLS_CLIENT);
+        $send("EHLO mintcode.com.br");
+        $read();
+    }
+    $send("AUTH LOGIN");
+    $read();
+    $send(base64_encode($user));
+    $read();
+    $send(base64_encode($pass));
+    $auth = $read();
+    if (strpos($auth, '235') === false) {
+        fclose($socket);
+        return "Autenticação falhou: $auth";
+    }
+    $send("MAIL FROM:<$from>");
+    $read();
+    $send("RCPT TO:<$to>");
+    $read();
+    $send("DATA");
+    $read();
+
+    $headers  = "From: $fromName <$from>\r\n";
+    $headers .= "To: <$to>\r\n";
+    $headers .= "Reply-To: $replyTo\r\n";
+    $headers .= "Subject: =?UTF-8?B?" . base64_encode($subject) . "?=\r\n";
+    $headers .= "MIME-Version: 1.0\r\n";
+    $headers .= "Content-Type: text/html; charset=UTF-8\r\n";
+
+    $send($headers . "\r\n" . $body . "\r\n.");
+    $result = $read();
+    $send("QUIT");
+    fclose($socket);
+
+    return strpos($result, '250') !== false ? true : "Erro ao enviar: $result";
+}
+
+$result = smtpSend(
+    $smtpHost, $smtpPort, $smtpUser, $smtpPass,
+    $fromEmail, $fromName, $toEmail,
+    $emailSubject, $htmlBody,
+    "$name <$email>"
+);
+
+if ($result === true) {
     echo json_encode(['success' => true, 'message' => 'E-mail enviado com sucesso']);
 } else {
     http_response_code(500);
-    echo json_encode(['error' => 'Falha ao enviar e-mail']);
+    echo json_encode(['error' => $result]);
 }
