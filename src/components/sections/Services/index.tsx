@@ -8,7 +8,7 @@ import Button from '../../Button/index.tsx'
 import GradientBorderCard from '../GradientBorderCard/index.tsx'
 
 export default function Services() {
-  const scrollToForm = () => document.getElementById('hero-form')?.scrollIntoView({ behavior: 'smooth' })
+  const whatsappLink = 'https://wa.me/5561998846590?text=Olá! Vim pelo site e gostaria de saber mais sobre criação de sites.'
   
   const services = [
     {
@@ -84,24 +84,21 @@ export default function Services() {
           ))}
         </div>
         
-        {/* Gradiente e CTA */}
-        <div className="relative mt-20 overflow-hidden rounded-3xl">
-          <div className="absolute inset-0 bg-linear-to-r from-primary via-primary to-primary-dark"></div>
-          <div className="relative z-10 px-12 py-16 text-center">
-            <h3 className="text-3xl md:text-4xl font-bold text-text mb-6">
-              Pronto para transformar sua presença digital?
-            </h3>
-            <p className="text-gray-800 text-lg mb-8 max-w-2xl mx-auto">
-              Entre em contato conosco e vamos criar o site perfeito para o seu negócio.
-            </p>
-            <Button 
-              size="lg"
-              className="bg-primary text-white hover:bg-primary-dark cursor-pointer"
-              onClick={scrollToForm}
-            >
-              Solicitar Orçamento
-            </Button>
-          </div>
+        {/* CTA */}
+        <div className="mt-20 px-12 py-16 text-center">
+          <h3 className="text-3xl md:text-4xl font-bold text-text mb-6">
+            Pronto para transformar sua presença digital?
+          </h3>
+          <p className="text-gray-600 text-lg mb-8 max-w-2xl mx-auto">
+            Entre em contato conosco e vamos criar o site perfeito para o seu negócio.
+          </p>
+          <Button
+            size="lg"
+            className="bg-primary text-white hover:bg-primary-dark cursor-pointer"
+            onClick={() => window.open(whatsappLink, '_blank')}
+          >
+            Falar no WhatsApp
+          </Button>
         </div>
       </div>
     </section>

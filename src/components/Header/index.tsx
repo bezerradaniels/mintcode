@@ -25,7 +25,16 @@ export default function Header() {
   const whatsappLink = 'https://wa.me/5561998846590?text=Olá! Vim pelo site e gostaria de saber mais sobre criação de sites.'
 
   return (
-    <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-[#00254a]/95 backdrop-blur-sm shadow-lg' : 'bg-transparent'}`}>
+    <header
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'shadow-lg' : 'bg-transparent'}`}
+      style={isScrolled ? {
+        background: 'rgba(0, 37, 74, 0.80)',
+        backdropFilter: 'blur(24px) saturate(180%)',
+        WebkitBackdropFilter: 'blur(24px) saturate(180%)',
+        borderBottom: '1px solid rgba(255,255,255,0.08)',
+        boxShadow: '0 4px 24px rgba(0,0,0,0.25), inset 0 1px 0 rgba(255,255,255,0.06)'
+      } : undefined}
+    >
       <div className="max-w-7xl mx-auto px-6">
         <div className="flex items-center justify-between h-20">
           <a href="#home" className="flex items-center">
