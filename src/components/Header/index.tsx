@@ -25,7 +25,7 @@ export default function Header() {
 
   return (
     <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-[#00254a]/95 backdrop-blur-sm shadow-lg' : 'bg-transparent'}`}>
-      <div className="max-w-6xl mx-auto px-6">
+      <div className="max-w-7xl mx-auto px-6">
         <div className="flex items-center justify-between h-20">
           <a href="#home" className="flex items-center">
             <img 
