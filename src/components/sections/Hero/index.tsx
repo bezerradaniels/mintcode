@@ -152,7 +152,7 @@ export default function Hero() {
           </div>
 
           {/* Right Column - Contact Form */}
-          <div id="hero-form" className="relative z-50">
+          <div id="hero-form" className="relative z-50 scroll-mt-24">
             <div 
               className="form-border-anim relative rounded-[28px] p-8 sm:p-10"
               style={{
