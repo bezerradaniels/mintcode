@@ -2,7 +2,7 @@ export default function CTA() {
   const whatsappLink = 'https://wa.me/5561998846590?text=Olá! Vim pelo site e gostaria de saber mais sobre criação de sites.'
 
   return (
-    <section className="relative overflow-hidden bg-[#0A0A0F] py-24 sm:py-32">
+    <section className="relative overflow-hidden bg-[#0A0A0F] py-8 sm:py-32">
       {/* Animated gradient background */}
       <div 
         className="absolute inset-0 opacity-40"
@@ -26,7 +26,7 @@ export default function CTA() {
       <div className="relative z-10 mx-auto max-w-5xl px-6">
         {/* Main CTA Card */}
         <div 
-          className="relative rounded-[32px] overflow-hidden p-12 sm:p-16"
+          className="relative rounded-[32px] overflow-hidden p-4 sm:p-16"
           style={{
             backdropFilter: 'blur(20px)'
           }}
@@ -49,12 +49,12 @@ export default function CTA() {
 
           <div className="relative text-center">
             {/* Heading */}
-            <h2 className="text-[36px] sm:text-[42px] md:text-[48px] font-bold leading-[1.1] mb-6 text-white">
+            <h2 className="text-[28px] sm:text-[42px] md:text-[48px] font-bold leading-[1.1] mb-2 sm:mb-6 text-white">
               Pronto para ter o site que sua empresa merece?
             </h2>
 
             {/* Description */}
-            <p className="text-[17px] sm:text-[19px] text-white/80 max-w-2xl mx-auto leading-relaxed mb-10">
+            <p className="text-[15px] sm:text-[19px] text-white/80 max-w-2xl mx-auto leading-relaxed mb-4 sm:mb-10">
               Entre em contato agora e receba um orçamento personalizado. 
               Vamos transformar sua visão em realidade digital.
             </p>
@@ -77,7 +77,7 @@ export default function CTA() {
             </button>
 
             {/* Trust indicators */}
-            <div className="flex flex-wrap items-center justify-center gap-6 mt-10 text-white/60 text-sm">
+            <div className="flex flex-wrap items-center justify-center gap-3 mt-4 sm:mt-10 text-white/60 text-sm">
               <div className="flex items-center gap-2">
                 <svg className="w-5 h-5 text-primary" fill="currentColor" viewBox="0 0 20 20">
                   <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
