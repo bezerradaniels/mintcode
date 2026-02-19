@@ -129,10 +129,31 @@ export default function Hero() {
                 </div>
               </div>
             </div>
+
+            {/* Mobile CTA button — only visible below lg */}
+            <div className="lg:hidden flex justify-center mt-8">
+              <button
+                onClick={() => document.getElementById('hero-form')?.scrollIntoView({ behavior: 'smooth' })}
+                className="inline-flex items-center gap-2 px-6 py-3 rounded-xl text-white font-semibold text-[15px] transition-all duration-300 hover:scale-105"
+                style={{ background: 'linear-gradient(135deg, #10b981 0%, #047857 100%)' }}
+              >
+                Solicitar Orçamento
+                <svg
+                  className="w-4 h-4 animate-bounce"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                  strokeWidth={2.5}
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+                </svg>
+              </button>
+            </div>
+
           </div>
 
           {/* Right Column - Contact Form */}
-          <div>
+          <div id="hero-form">
             <div 
               className="relative rounded-[28px] p-8 sm:p-10"
               style={{
