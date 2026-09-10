@@ -1,0 +1,121 @@
+{
+  "container": {
+    "name": "MintCode - cliques de botoes",
+    "tracking_method": "dataLayer",
+    "custom_event_pattern": "^click_btn_",
+    "ga4_event_tag": {
+      "event_name": "{{Event}}",
+      "parameters": {
+        "button_id": "{{DLV - button_id}}",
+        "button_text": "{{DLV - button_text}}",
+        "link_url": "{{DLV - link_url}}"
+      }
+    }
+  },
+  "data_layer_variables": [
+    {
+      "name": "DLV - button_id",
+      "data_layer_variable_name": "button_id"
+    },
+    {
+      "name": "DLV - button_text",
+      "data_layer_variable_name": "button_text"
+    },
+    {
+      "name": "DLV - link_url",
+      "data_layer_variable_name": "link_url"
+    }
+  ],
+  "events": [
+    {
+      "event_name": "click_btn_menu",
+      "button_id": "click_btn_menu",
+      "description": "Abre ou fecha o menu mobile"
+    },
+    {
+      "event_name": "click_btn_contact_header",
+      "button_id": "click_btn_contact_header",
+      "description": "Contato no cabecalho"
+    },
+    {
+      "event_name": "click_btn_whatsapp_hero",
+      "button_id": "click_btn_whatsapp_hero",
+      "description": "WhatsApp no hero"
+    },
+    {
+      "event_name": "click_btn_projects_hero",
+      "button_id": "click_btn_projects_hero",
+      "description": "Acesso aos projetos pelo hero"
+    },
+    {
+      "event_name": "click_btn_open_lead_chat",
+      "button_id": "click_btn_open_lead_chat",
+      "description": "Abertura do formulario conversacional da oferta"
+    },
+    {
+      "event_name": "click_btn_lead_offer",
+      "button_id": "click_btn_lead_offer",
+      "description": "Avanco e envio do formulario conversacional da oferta"
+    },
+    {
+      "event_name": "generate_lead",
+      "button_id": "click_btn_lead_offer",
+      "description": "Lead gerado pelo formulario promocional"
+    },
+    {
+      "event_name": "click_btn_whatsapp_thank_you",
+      "button_id": "click_btn_whatsapp_thank_you",
+      "description": "WhatsApp da oferta de desconto na pagina de agradecimento"
+    },
+    {
+      "event_name": "click_btn_quote_portfolio",
+      "button_id": "click_btn_quote_portfolio",
+      "description": "Orcamento no portfolio"
+    },
+    {
+      "event_name": "click_btn_quote_about",
+      "button_id": "click_btn_quote_about",
+      "description": "Orcamento na secao Sobre"
+    },
+    {
+      "event_name": "click_btn_faq_01",
+      "button_id": "click_btn_faq_01",
+      "description": "FAQ: prazo de criacao"
+    },
+    {
+      "event_name": "click_btn_faq_02",
+      "button_id": "click_btn_faq_02",
+      "description": "FAQ: responsividade"
+    },
+    {
+      "event_name": "click_btn_faq_03",
+      "button_id": "click_btn_faq_03",
+      "description": "FAQ: suporte"
+    },
+    {
+      "event_name": "click_btn_faq_04",
+      "button_id": "click_btn_faq_04",
+      "description": "FAQ: integracoes"
+    },
+    {
+      "event_name": "click_btn_faq_05",
+      "button_id": "click_btn_faq_05",
+      "description": "FAQ: processo"
+    },
+    {
+      "event_name": "click_btn_faq_06",
+      "button_id": "click_btn_faq_06",
+      "description": "FAQ: SEO"
+    },
+    {
+      "event_name": "click_btn_contact_faq",
+      "button_id": "click_btn_contact_faq",
+      "description": "Contato apos o FAQ"
+    },
+    {
+      "event_name": "click_btn_whatsapp_footer",
+      "button_id": "click_btn_whatsapp_footer",
+      "description": "WhatsApp no rodape"
+    }
+  ]
+}
